@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns="http://www.w3.org/1999/html">
     <meta charset="UTF-8">
     <meta name="description" content="Shop">
     <meta name="author" content="Chelsea Ip">
@@ -14,6 +14,65 @@
     
     <title> Make your own pizza </title>
 </head>
+
+<script>
+    var size_price = {
+        "Small": 5.99,
+        "Medium": 7.99,
+        "Large": 9.99,
+    }
+
+    var dough_price = {
+        "Thin": 1.00,
+        "Regular": 2.00,
+        "Deep": 4.00
+    };
+
+    var toppings_price = {
+        "Pepperoni": 1.00,
+        "Onion": 1.00,
+        "Sausage": 1.50,
+        "Mushroom": 1.50,
+        "Peppers": 1.50,
+        "Olives": 2.00,
+        "Garlic": 2.00
+    };
+
+    function updatePrice() {
+        var nPrice = 0.00;
+        var theForm = document.getElementById("PizzaOrderSize").elements;
+        var pizzaSize = theForm["pizzaSize"];
+        console.log(pizzaSize, pizzaSize.value, pizzaSize.length == 0, pizzaSize.value == null);
+        var pizzaDough = theForm["pizzaDough"];
+        var pizzaToppings = theForm["topping"];
+
+        nPrice += size_price[pizzaSize.value];
+        nPrice += dough_price[pizzaDough.value];
+        numChecked = 0;
+        for (var i = 0; i < pizzaToppings.length; i++)
+        {
+            if (pizzaToppings[i].checked)
+            {
+                if (numChecked < 3)
+                {
+                    numChecked += 1;
+                    nPrice += toppings_price[pizzaToppings[i].value];
+                }
+                else
+                {
+                    pizzaToppings[i].checked = false;
+                }
+            }
+        }
+
+        $("#totalPrice").html(nPrice.toFixed(2));
+
+    }
+
+    $(document).ready(function() {
+        updatePrice();
+    });
+</script>
 
 <style>
     body {
@@ -119,9 +178,6 @@
 
 </style>
 
-
-
-
 <body>
     <h1 class="header"><span id="headerspan"></span>
             <div id ="pizza">
@@ -131,94 +187,68 @@
             </div>
           </h1>
 
-       <div id="me">
-         <form action="" id="PizzaOrder" onsumbit=
-        <br>
-         <center><b>Please select a size of the Pizza.</b></center>
-         <br>
-           <div id="pizalist" class="grid-container">
-            <div class="grid-item">
-                <input id = "r1" type="radio" name="button-school" value="Small"/> Small</label>
-               
-            </div>
-            <div class="grid-item">
-                <input id = "r2" type="radio" name="button-school" value="Medium" /> Medium</label>
-         
-            </div>
-            <div class="grid-item">
-                <input id = "r3" type="radio" name="button-school" value="Large" /> Large </label>
-             
-            </div>
-           </div>
-           <br>
-         <center><b> Please choose the type of Crust.</b></center>
-         <br>
-           <div id="pizalist" class="grid-container">
-            <div class="grid-item">
-                <input id = "r4" type="radio" name=radio value="Thin"/> Thin Crust</label>
-            </div>
-            <div class="grid-item">
-                <input id = "r5" type="radio"  name=radio value="Regular"/> Regular Crust</label>
-            </div>
-            <div class="grid-item">
-                <input id = "r6" type="radio"  name=radio value="Deep" /> Deep Dish </label>
-            </div>
-           </div>
-           <br>
-           <center><b>Please choose only 3 Toppings.</b></center>
-           <br>
-             <div id="pizalist" class="grid-container">
-              <div class="grid-item">
-                  <input class = "single-checkbox" type="checkbox" name= "topping" value="veggie" price="6"/> Pepperoni</label>
-              </div>
-              <div class="grid-item">
-                  <input class = "single-checkbox" type="checkbox" name= "topping" value="veggie" price="7"/> Onion</label>
-              </div>
-              <div class="grid-item">
-                  <input class = "single-checkbox" type="checkbox" name= "topping" value="veggie" price="8"/> Sausage</label>
-              </div>
-               <div class="grid-item">
-                <input class = "single-checkbox" type="checkbox" name= "topping"  value="veggie" price="8"/> Mushroom </label>
-             </div>
-             <div class="grid-item">
-                <input class = "single-checkbox" type="checkbox" name= "topping" value="veggie" price="8"/> Peppers </label>
-             </div>
-             <div class="grid-item">
-                <input class = "single-checkbox" type="checkbox" name= "topping" value="veggie" price="8"/> Olives </label>
-             </div>
-             <div class="grid-item">
-                <input class = "single-checkbox" type="checkbox" name= "topping" value="veggie" price="8"/> Garlic </label>
-             </div>
-             </div>
-             <br>
-             <center><b> TOTAL</b></center>
+    <div id="me">
+        <form action="" id="PizzaOrderSize">
             <br>
-       </div>
-        
-    </body>
-
-    <script>
-       //my idea is adding +2 depending on type of crust
-       //look at the table across (small x thin, small x regular, small x deep)
-        var SMLThin = {
-            "Small": 12,
-            "Medium": 15,
-            "Large": 18
-        };
-
-        function getPizzaPrice(){
-            var price=0;
-            var theForm = document.form[""]
-
-        }
-        
-        $('input[type=checkbox]').change(function(e){
-        if ($('input[type=checkbox]:checked').length > 3) {
-                $(this).prop('checked', false)
-                alert("allowed only 3");
-        }
-        })
-    </script>
-    </html>
+                <center><b>Please select a size of the Pizza.</b></center>
+            <br>
+            <div id="PizzaListSize" class="grid-container">
+                <div class="grid-item">
+                <input id = "r1" type="radio" name="pizzaSize" value="Small" onclick="updatePrice()" checked/> Small ($5.99)
+                </div>
+                <div class="grid-item">
+                <input id = "r2" type="radio" name="pizzaSize" value="Medium" onclick="updatePrice()" /> Medium ($7.99)
+                </div>
+                <div class="grid-item">
+                    <input id = "r3" type="radio" name="pizzaSize" value="Large" onclick="updatePrice()" /> Large ($9.99)
+                </div>
+            </div>
+            <br>
+                <center><b> Please choose the type of Crust.</b></center>
+            <br>
+            <div id="PizzaListDough" class="grid-container">
+                <div class="grid-item">
+                    <input id = "r4" type="radio" name="pizzaDough" value="Thin" onclick="updatePrice()" checked/> Thin Crust ($1.00)
+                </div>
+                <div class="grid-item">
+                    <input id = "r5" type="radio"  name="pizzaDough" value="Regular" onclick="updatePrice()" /> Regular Crust ($2.00)
+                </div>
+                <div class="grid-item">
+                    <input id = "r6" type="radio"  name="pizzaDough" value="Deep" onclick="updatePrice()" /> Deep Dish ($4.00)
+                </div>
+            </div>
+            <br>
+                <center><b>Please choose only 3 Toppings.</b></center>
+            <br>
+            <div id="pizzaListToppings" class="grid-container">
+                <div class="grid-item">
+                          <input class = "single-checkbox" type="checkbox" name= "topping" value="Pepperoni" onclick="updatePrice()" /> Pepperoni ($1.00)
+                </div>
+                <div class="grid-item">
+                          <input class = "single-checkbox" type="checkbox" name= "topping" value="Onion" onclick="updatePrice()" /> Onion ($1.00)
+                </div>
+                <div class="grid-item">
+                          <input class = "single-checkbox" type="checkbox" name= "topping" value="Sausage" onclick="updatePrice()" /> Sausage ($1.50)
+                </div>
+                <div class="grid-item">
+                        <input class = "single-checkbox" type="checkbox" name= "topping"  value="Mushroom"  onclick="updatePrice()" /> Mushroom ($1.50)
+                </div>
+                <div class="grid-item">
+                        <input class = "single-checkbox" type="checkbox" name= "topping" value="Peppers"  onclick="updatePrice()" /> Peppers ($1.50)
+                </div>
+                <div class="grid-item">
+                        <input class = "single-checkbox" type="checkbox" name= "topping" value="Olives" onclick="updatePrice()" /> Olives ($2.00)
+                </div>
+                <div class="grid-item">
+                        <input class = "single-checkbox" type="checkbox" name= "topping" value="Garlic" onclick="updatePrice()" /> Garlic ($2.00)
+                </div>
+            </div>
+            <br>
+            <center><b> TOTAL</b> <p id="totalPrice">---</p></center>
+            <br>
+        </form>
+    </div>
+</body>
+</html>
         
 
