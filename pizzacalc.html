@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+    <meta charset="UTF-8">
+    <meta name="description" content="Shop">
+    <meta name="author" content="Chelsea Ip">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0;">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=yes" />
+    <link href="dist/magnific-popup.css?v=0.9.8" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<head>
+    
+    <title> Make your own pizza </title>
+</head>
+
+<style>
+    body {
+
+        color: #212529;
+        text-align: left;
+        background-color: #dc3545 !important;
+    }
+
+
+    .header {
+        background-color:#201f1f;
+        width: 100%;
+        line-height: 90px;
+        margin-top: -20px;
+        display: block;
+        margin-right: 190px;
+    }
+
+    #main {
+        width: 60%;
+        margin:auto;
+    }
+
+    .container {
+        width: 100%;
+        padding-right: 15px;
+        padding-left: 15px;
+        margin-right: auto;
+        margin-left: auto;
+
+    }
+    .col {
+        flex-basis: 0;
+        flex-grow: 1;
+        max-width: 100%;
+    }
+
+    label {
+        display: inline-block;
+        margin-bottom: 20px;
+    }
+
+    label {
+        cursor: default;
+    }
+
+    .col-1, .col-2, .col-3, .col-4, .col-5, .col-6, .col-7, .col-8, .col-9, .col-10, .col-11, .col-12, .col, .col-auto, .col-sm-1, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-sm-10, .col-sm-11, .col-sm-12, .col-sm, .col-sm-auto, .col-md-1, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-10, .col-md-11, .col-md-12, .col-md, .col-md-auto, .col-lg-1, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-lg-10, .col-lg-11, .col-lg-12, .col-lg, .col-lg-auto, .col-xl-1, .col-xl-2, .col-xl-3, .col-xl-4, .col-xl-5, .col-xl-6, .col-xl-7, .col-xl-8, .col-xl-9, .col-xl-10, .col-xl-11, .col-xl-12, .col-xl, .col-xl-auto {
+        position: relative;
+        width: 100%;
+        min-height: 1px;
+        padding-right: 15px;
+        padding-left: 15px;
+    }
+
+    .grid-item {
+        color: white;
+        text-align:center;
+        font-family: 'Karla', sans-serif;
+        -webkit-font-smoothing: antialised;
+        padding: 10px;
+        width: 100%;
+        font-size: 15px;
+        text-align: center;
+        margin-bottom: 50px;
+    }
+
+    #me {
+        color: white;
+        font-size:14px;
+        text-align: left;
+        line-height: 24px;
+        text-size-adjust: 100%;
+        -webkit-font-smoothing: antialiased;
+    }
+
+    .container {
+       position: relative;
+       text-align:center;
+       color: white;
+   }
+
+   #me {
+        font-size:14px;
+        text-align: left;
+        line-height: 24px;
+        text-size-adjust: 100%;
+        -webkit-font-smoothing: antialiased;
+    }
+
+    .grid-container {
+       font-family: 'Karla', sans-serif;
+       display: grid;
+       text-align: center;
+       grid-template-columns: auto auto auto;
+       background-color: #212529;
+       padding-top: 40px;
+    }
+
+    .active {
+        background-color:green;
+    }
+
+</style>
+
+
+
+
+<body>
+    <h1 class="header"><span id="headerspan"></span>
+            <div id ="pizza">
+                <center>
+                    <img src="Images/—Pngtree—neon pizza shop sign_4568851.png" width="360px">
+                </center>
+            </div>
+          </h1>
+
+       <div id="me">
+         <form action="" id="PizzaOrder" onsumbit=
+        <br>
+         <center><b>Please select a size of the Pizza.</b></center>
+         <br>
+           <div id="pizalist" class="grid-container">
+            <div class="grid-item">
+                <input id = "r1" type="radio" name="button-school" value="Small"/> Small</label>
+               
+            </div>
+            <div class="grid-item">
+                <input id = "r2" type="radio" name="button-school" value="Medium" /> Medium</label>
+         
+            </div>
+            <div class="grid-item">
+                <input id = "r3" type="radio" name="button-school" value="Large" /> Large </label>
+             
+            </div>
+           </div>
+           <br>
+         <center><b> Please choose the type of Crust.</b></center>
+         <br>
+           <div id="pizalist" class="grid-container">
+            <div class="grid-item">
+                <input id = "r4" type="radio" name=radio value="Thin"/> Thin Crust</label>
+            </div>
+            <div class="grid-item">
+                <input id = "r5" type="radio"  name=radio value="Regular"/> Regular Crust</label>
+            </div>
+            <div class="grid-item">
+                <input id = "r6" type="radio"  name=radio value="Deep" /> Deep Dish </label>
+            </div>
+           </div>
+           <br>
+           <center><b>Please choose only 3 Toppings.</b></center>
+           <br>
+             <div id="pizalist" class="grid-container">
+              <div class="grid-item">
+                  <input class = "single-checkbox" type="checkbox" name= "topping" value="veggie" price="6"/> Pepperoni</label>
+              </div>
+              <div class="grid-item">
+                  <input class = "single-checkbox" type="checkbox" name= "topping" value="veggie" price="7"/> Onion</label>
+              </div>
+              <div class="grid-item">
+                  <input class = "single-checkbox" type="checkbox" name= "topping" value="veggie" price="8"/> Sausage</label>
+              </div>
+               <div class="grid-item">
+                <input class = "single-checkbox" type="checkbox" name= "topping"  value="veggie" price="8"/> Mushroom </label>
+             </div>
+             <div class="grid-item">
+                <input class = "single-checkbox" type="checkbox" name= "topping" value="veggie" price="8"/> Peppers </label>
+             </div>
+             <div class="grid-item">
+                <input class = "single-checkbox" type="checkbox" name= "topping" value="veggie" price="8"/> Olives </label>
+             </div>
+             <div class="grid-item">
+                <input class = "single-checkbox" type="checkbox" name= "topping" value="veggie" price="8"/> Garlic </label>
+             </div>
+             </div>
+             <br>
+             <center><b> TOTAL</b></center>
+            <br>
+       </div>
+        
+    </body>
+
+    <script>
+       //my idea is adding +2 depending on type of crust
+       //look at the table across (small x thin, small x regular, small x deep)
+        var SMLThin = {
+            "Small": 12,
+            "Medium": 15,
+            "Large": 18
+        };
+
+        function getPizzaPrice(){
+            var price=0;
+            var theForm = document.form[""]
+
+        }
+        
+        $('input[type=checkbox]').change(function(e){
+        if ($('input[type=checkbox]:checked').length > 3) {
+                $(this).prop('checked', false)
+                alert("allowed only 3");
+        }
+        })
+    </script>
+    </html>
+        
+
